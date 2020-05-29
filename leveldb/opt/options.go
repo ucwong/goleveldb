@@ -22,29 +22,29 @@ const (
 )
 
 var (
-	DefaultBlockCacher                   = LRUCacher
-	DefaultBlockCacheCapacity            = 8 * MiB
-	DefaultMetadataCacher                = LRUCacher
-	DefaultMetadataCacheCapacity         = 8 * MiB
-	DefaultOpenFilesCacher               = LRUCacher
-	DefaultOpenFilesCacheCapacity        = 500
-	DefaultBlockRestartInterval          = 16
-	DefaultBlockSize                     = 4 * KiB
-	DefaultCompactionExpandLimitFactor   = 25
-	DefaultCompactionGPOverlapsFactor    = 10
-	DefaultCompactionL0Trigger           = 4
-	DefaultCompactionSourceLimitFactor   = 1
-	DefaultCompactionTableSize           = 2 * MiB
-	DefaultCompactionTableSizeMultiplier = 1.0
-	DefaultCompactionTotalSize           = 10 * MiB
-	DefaultCompactionTotalSizeMultiplier = 10.0
+	DefaultBlockCacher                        = LRUCacher
+	DefaultBlockCacheCapacity                 = 8 * MiB
+	DefaultMetadataCacher                     = LRUCacher
+	DefaultMetadataCacheCapacity              = 8 * MiB
+	DefaultOpenFilesCacher                    = LRUCacher
+	DefaultOpenFilesCacheCapacity             = 500
+	DefaultBlockRestartInterval               = 16
+	DefaultBlockSize                          = 4 * KiB
+	DefaultCompactionExpandLimitFactor        = 25
+	DefaultCompactionGPOverlapsFactor         = 10
+	DefaultCompactionL0Trigger                = 4
+	DefaultCompactionSourceLimitFactor        = 1
+	DefaultCompactionTableSize                = 2 * MiB
+	DefaultCompactionTableSizeMultiplier      = 1.0
+	DefaultCompactionTotalSize                = 10 * MiB
+	DefaultCompactionTotalSizeMultiplier      = 10.0
 	DefaultCompactionSeedFileNumber           = 1
 	DefaultCompactionSeedFileNumberMultiplier = 2
-	DefaultCompressionType               = SnappyCompression
-	DefaultIteratorSamplingRate          = 1 * MiB
-	DefaultWriteBuffer                   = 4 * MiB
-	DefaultWriteL0PauseTrigger           = 12
-	DefaultWriteL0SlowdownTrigger        = 8
+	DefaultCompressionType                    = SnappyCompression
+	DefaultIteratorSamplingRate               = 1 * MiB
+	DefaultWriteBuffer                        = 4 * MiB
+	DefaultWriteL0PauseTrigger                = 12
+	DefaultWriteL0SlowdownTrigger             = 8
 )
 
 // Cacher is a caching algorithm.
