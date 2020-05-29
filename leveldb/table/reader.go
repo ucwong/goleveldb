@@ -641,7 +641,7 @@ func (r *Reader) readBlock(bh blockHandle, verifyChecksum bool) (*block, error) 
 	return b, nil
 }
 
-func (r *Reader) readBlockCached(bh blockHandle, verifyChecksum, fillCache bool) (*block, util.Releaser, error) {
+func (r *Reader) readBlockCached(bh blockHandle, verifyChecksum, fillCache bool, metadata bool) (*block, util.Releaser, error) {
 	if r.cache != nil {
 		var (
 			err  error
@@ -765,7 +765,7 @@ func (r *Reader) readFilterBlockCached(bh blockHandle, fillCache bool) (*filterB
 
 func (r *Reader) getIndexBlock(fillCache bool) (b *block, rel util.Releaser, err error) {
 	if r.indexBlock == nil {
-		return r.readBlockCached(r.indexBH, true, fillCache)
+		return r.readBlockCached(r.indexBH, true, fillCache, true)
 	}
 	return r.indexBlock, util.NoopReleaser{}, nil
 }
@@ -818,7 +818,7 @@ func (r *Reader) newBlockIter(b *block, bReleaser util.Releaser, slice *util.Ran
 }
 
 func (r *Reader) getDataIter(dataBH blockHandle, slice *util.Range, verifyChecksum, fillCache bool) iterator.Iterator {
-	b, rel, err := r.readBlockCached(dataBH, verifyChecksum, fillCache)
+	b, rel, err := r.readBlockCached(dataBH, verifyChecksum, fillCache, false)
 	if err != nil {
 		return iterator.NewEmptyIterator(err)
 	}
@@ -1037,7 +1037,7 @@ func (r *Reader) OffsetOf(key []byte) (offset int64, err error) {
 		return
 	}
 
-	indexBlock, rel, err := r.readBlockCached(r.indexBH, true, true)
+	indexBlock, rel, err := r.readBlockCached(r.indexBH, true, true, true)
 	if err != nil {
 		return
 	}
