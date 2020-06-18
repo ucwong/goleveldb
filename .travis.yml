@@ -1,9 +1,0 @@
-language: go
-
-go:
-  - 1.14.x
-
-script:
-  - go vet ./...
-  - go test -timeout 1h ./...
-  - go test -timeout 30m -race -run "TestDB_(Concurrent|GoleveldbIssue74)" ./leveldb
