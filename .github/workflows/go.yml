@@ -31,11 +31,11 @@ jobs:
         fi
 
     - name: Build
-      run: go build -v .
+      run: go build -v ./leveldb
 
     - name: CodeCov
       run: |
-        GO111MODULE=on && go test $(go list ./... | grep -v /cvm-runtime/ | grep -v /solution/) -mod=vendor -coverprofile=coverage.txt -covermode=atomic
+        go test -timeout 30m -coverprofile=coverage.txt -covermode=atomic -run "TestDB_(Concurrent|GoleveldbIssue74)" ./leveldb
         if [ -f coverage.txt ]; then
             bash <(curl -s https://codecov.io/bash)
         fi
