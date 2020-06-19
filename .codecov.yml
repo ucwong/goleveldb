@@ -5,6 +5,12 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
+  status:
+    project:
+      default: off
+      backend:
+        target: 50%
+        flags: backend
 
 parsers:
   gcov:
