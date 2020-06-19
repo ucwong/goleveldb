@@ -13,7 +13,14 @@ parsers:
       loop: yes
       method: no
       macro: no
-
+      
+flags:
+  # filter the folder(s) you wish to measure by that flag
+  backend:
+    # only include files in the backend folder
+    paths:
+      - leveldb/
+      
 comment:
   layout: "reach,diff,flags,tree"
   behavior: default
