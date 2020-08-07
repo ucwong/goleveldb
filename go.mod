@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
-	github.com/golang/snappy v0.0.2-0.20190904063534-ff6b7dc882cf
+	github.com/golang/snappy v0.0.2-0.20200707131729-196ae77b8a26
 	github.com/onsi/ginkgo v1.12.1
 	github.com/onsi/gomega v1.10.0
 	golang.org/x/net v0.0.0-20200513185701-a91f0712d120 // indirect
