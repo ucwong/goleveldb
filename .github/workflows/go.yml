@@ -35,7 +35,7 @@ jobs:
 
     - name: CodeCov
       run: |
-        go test -timeout 30m -coverprofile=coverage.txt -covermode=atomic -run "TestDB_(Concurrent|GoleveldbIssue74)" ./leveldb
+        go test -timeout 30m -coverprofile=coverage.txt -covermode=atomic -run "TestDB_(GoleveldbIssue74)" ./leveldb
         if [ -f coverage.txt ]; then
             bash <(curl -s https://codecov.io/bash)
         fi
